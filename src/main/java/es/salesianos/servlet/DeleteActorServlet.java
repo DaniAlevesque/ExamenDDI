@@ -15,11 +15,10 @@ public class DeleteActorServlet extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String codActor = req.getParameter("codActor");
-
-		
 		service.searchAndDeleteActor(Integer.parseInt(codActor));
 		redirect(req, resp);
 	}
+
 	protected void redirect(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(req,resp);

@@ -3,31 +3,31 @@ package es.salesianos.service;
 import java.util.List;
 
 import es.salesianos.model.Film;
-import es.salesianos.repository.Repository;
+import es.salesianos.repository.RepositoryFilm;
 
 public class FilmService {
 	
 	
-	private Repository repository = new Repository();
+	private RepositoryFilm repositoryFilm = new RepositoryFilm();
 
-	public Repository getRepository() {
-		return repository;
+	public RepositoryFilm getRepository() {
+		return repositoryFilm;
 	}
 
-	public void setRepository(Repository repository) {
-		this.repository = repository;
+	public void setRepository(RepositoryFilm repositoryFilm) {
+		this.repositoryFilm = repositoryFilm;
 	}
 
 	public void addFilm(Film film) {
-		repository.insertPelicula(film);
+		repositoryFilm.insertFilm(film);
 	}
 
 	public List<Film> listAllFilms() {
-		return repository.searchAllPeliculas();
+		return repositoryFilm.searchAllPeliculas();
 	}
 
 	public void searchAndDeleteFilm(Integer codPelicula) {
-		repository.searchAndDeletePelicula(codPelicula);
+		repositoryFilm.searchAndDeletePelicula(codPelicula);
 	}
 
 }

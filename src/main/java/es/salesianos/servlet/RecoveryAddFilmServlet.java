@@ -15,9 +15,7 @@ import es.salesianos.model.assembler.ExamAssembler;
 import es.salesianos.service.ActorService;
 import es.salesianos.service.FilmService;
 
-/**
- * Servlet implementation class RecoveryAddFilmServlet
- */
+
 public class RecoveryAddFilmServlet extends HttpServlet {private static final long serialVersionUID = 1L;
 
 	private FilmService service = new FilmService();
@@ -25,22 +23,22 @@ public class RecoveryAddFilmServlet extends HttpServlet {private static final lo
 
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	Film film = ExamAssembler.assemblePeliculaFrom(req);
+	Film film = ExamAssembler.assembleFilmFrom(req);
 	service.addFilm(film);
 	doAction(req, resp);
 }
 
 @Override	
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String codPelicula = req.getParameter("cod");
+		String codFilm = req.getParameter("cod");
 
-	req.setAttribute("codPelicula", codPelicula);
+		req.setAttribute("codPelicula", codFilm);
 	doAction(req, resp);
 }
 
 private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-		List<Actor> listAllActores = service2.selectAllActor();
-	req.setAttribute("listAllActores", listAllActores);
+		List<Actor> listAllActors = service2.selectAllActor();
+		req.setAttribute("listAllActores", listAllActors);
 	redirect(req, resp);
 }
 

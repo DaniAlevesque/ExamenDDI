@@ -24,7 +24,7 @@ public class PeliculaActorServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Film film = ExamAssembler.assemblePeliculaFrom(req);
+		Film film = ExamAssembler.assembleFilmFrom(req);
 		service.addFilm(film);
 	}
 

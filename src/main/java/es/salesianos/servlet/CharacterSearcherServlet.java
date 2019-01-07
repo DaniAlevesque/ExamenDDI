@@ -29,8 +29,8 @@ public class CharacterSearcherServlet extends HttpServlet {
 	private void doAction(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		String role = req.getParameter("role");
 		if (role != null) {
-			FilmActors selectPeliculaActor = service.filterAllPeliculaActor(role);
-			req.setAttribute("selectPeliculaActor", selectPeliculaActor);
+			FilmActors selectFilmActor = service.filterAllPeliculaActor(role);
+			req.setAttribute("selectPeliculaActor", selectFilmActor);
 		}
 		redirect(req, resp);
 	}

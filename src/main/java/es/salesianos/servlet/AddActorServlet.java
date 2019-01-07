@@ -26,14 +26,14 @@ public class AddActorServlet extends HttpServlet {
 		if (parameter != null) {
 			int beginDate = Integer.parseInt(req.getParameter("beginDate"));
 			int endDate = Integer.parseInt(req.getParameter("endDate"));
-			List<Actor> listAllActores = service.filterAllActor(beginDate, endDate);
-			req.setAttribute("listAllActors", listAllActores);
+			List<Actor> listAllActors = service.filterAllActor(beginDate, endDate);
+			req.setAttribute("listAllActors", listAllActors);
 		} else {
 			Actor actor = assembler.assembleActorFromRequest(req);
 
 			service.addActor(actor);
-			List<Actor> listAllActores = service.selectAllActor();
-			req.setAttribute("listAllActors", listAllActores);
+			List<Actor> listAllActors = service.selectAllActor();
+			req.setAttribute("listAllActors", listAllActors);
 		}
 		
 		redirect(req,resp);

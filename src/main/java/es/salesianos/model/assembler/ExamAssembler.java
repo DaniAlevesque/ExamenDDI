@@ -18,7 +18,7 @@ public class ExamAssembler {
 		return actor;
 	}
 	
-	public static Film assemblePeliculaFrom(HttpServletRequest req) {
+	public static Film assembleFilmFrom(HttpServletRequest req) {
 		Film film = new Film();
 		String titulo=req.getParameter("TITTLE");
 		Integer codowner=Integer.parseInt(req.getParameter("CODOWNER"));
@@ -58,7 +58,7 @@ public class ExamAssembler {
 	}
 
 	public Film assembleFilmFromRequest(HttpServletRequest req) {
-		return ExamAssembler.assemblePeliculaFrom(req);
+		return ExamAssembler.assembleFilmFrom(req);
 	}
 
 	public Director assembleDirectorFromRequest(HttpServletRequest req) {

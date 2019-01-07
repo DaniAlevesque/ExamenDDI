@@ -18,16 +18,16 @@ public class FillPeliculaActorServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		FilmActors peliculaActor = ExamAssembler.assembleFilmActorFrom(req);
-		service.insertFilmActor(peliculaActor);
+		FilmActors filmActor = ExamAssembler.assembleFilmActorFrom(req);
+		service.insertFilmActor(filmActor);
 		doAction(req, resp);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String codPelicula = req.getParameter("codPelicula");
+		String codFilm = req.getParameter("codPelicula");
 		String codActor = req.getParameter("codActor");
-		req.setAttribute("codPelicula", codPelicula);
+		req.setAttribute("codPelicula", codFilm);
 		req.setAttribute("codActor", codActor);
 		doAction(req, resp);
 	}
